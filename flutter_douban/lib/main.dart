@@ -1,13 +1,27 @@
-import 'package:flutter/material.dart';
+import 'dart:io';
 
-void main() => runApp(MyApp());
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+
+import 'generated/i18n.dart';
+
+void main() {
+  runApp(MyApp());
+  if (Platform.isAndroid) {
+    //设置Android头部的导航栏透明
+    SystemUiOverlayStyle systemUiOverlayStyle =
+        SystemUiOverlayStyle(statusBarColor: Colors.transparent);
+    SystemChrome.setSystemUIOverlayStyle(systemUiOverlayStyle);
+  }
+}
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: S.of(context).app_name,
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -20,6 +34,12 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
+      localizationsDelegates: const [
+        S.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate
+      ],
+      supportedLocales: S.delegate.supportedLocales,
       home: MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
