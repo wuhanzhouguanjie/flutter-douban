@@ -15,4 +15,4 @@ This project is a starting point for a Flutter application.
 
 flutter练手项目，模仿豆瓣app客户端
 
-参考项目 https://github.com/zhanghai/Douya
+参考项目 https://github.com/kaina404/FlutterDouBan
