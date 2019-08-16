@@ -2,12 +2,13 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_douban/pages/splash/SplashPage.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'generated/i18n.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(new MyApp());
   if (Platform.isAndroid) {
     //设置Android头部的导航栏透明
     SystemUiOverlayStyle systemUiOverlayStyle =
@@ -39,7 +40,7 @@ class MyApp extends StatelessWidget {
         GlobalWidgetsLocalizations.delegate
       ],
       supportedLocales: S.delegate.supportedLocales,
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: SplashPage(),
     );
   }
 }

@@ -50,6 +50,7 @@ flutter:
 
   # 图片资源
   assets:
+    - assets/images/
     - images/
     - images/2.0x/
     - images/3.0x/
