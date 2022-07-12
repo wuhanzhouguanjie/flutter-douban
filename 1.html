@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0,user-scalable=no"/>
+</head>
+<body>
+iOS传过来的值：<span id="name"></span>
+<button onclick="responseSwift()">响应iOS</button>
+<script type="text/javascript">
+            // 给Swift调用
+            function sayHello(name) {
+                document.getElementById("name").innerHTML = name
+                return "Swift你好！"
+            }
+
+            // 调用Swift方法
+            function responseSwift() {
+                // 这里的callbackHandler是创建WKWebViewConfiguration时定义的
+                window.webkit.messageHandlers.we_bridge.postMessage("JS发送消息给Swift")
+            }
+        </script>
+</body>
+</html>
